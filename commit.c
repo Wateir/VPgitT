@@ -4,7 +4,7 @@
 
 #define MAX_LENGTH 256
 
-int main() {
+int commit() {
     char titre[MAX_LENGTH];
     char description[MAX_LENGTH];
 
@@ -30,3 +30,21 @@ int main() {
     return 0;
 }
 
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf("Usage: %s <commit|change>\n", argv[0]);
+        return 1;
+    }
+
+    // Comparaison des arguments
+    if (strcmp(argv[1], "commit") == 0) {
+        commit();
+    } else if (strcmp(argv[1], "change") == 0) {
+        printf("L'argument est 'change'.\n");
+    } else {
+        printf("Argument invalide. Utilisez 'commit' ou 'change'.\n");
+        return 1;
+    }
+
+    return 0;
+}
