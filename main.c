@@ -4,9 +4,8 @@
 
 #define MAX_LENGTH 256
 
-int commit() {
-    char titre[MAX_LENGTH];
-    char description[MAX_LENGTH];
+
+int commitInterface(char* titre, char* description) {
 
     printf(" Title 	:\n");
     printf("  Description 	: ");
@@ -20,14 +19,22 @@ int commit() {
     printf("\033[A\33[2K\r");
     printf("\033[A\33[2K\r");
 
-    char commande[MAX_LENGTH * 2];
     
     printf("\033[0;32m==> \033[0m");fflush(stdout);
     
-    snprintf(commande, sizeof(commande), "git commit -m \"%s\" -m \"%s\"", titre, description);
-    
-    system(commande);
-    return 0;
+	return 0;
+}
+int commit() {
+	char titre[MAX_LENGTH];
+	char description[MAX_LENGTH];
+	char commande[MAX_LENGTH * 2];
+
+	commitInterface(titre, description);
+	
+	snprintf(commande, sizeof(commande), "git commit -m \"%s\" -m \"%s\"", titre, description);
+	    
+	system(commande);
+
 }
 
 int main(int argc, char *argv[]) {
