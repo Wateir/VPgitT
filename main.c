@@ -34,7 +34,20 @@ int commit() {
 	snprintf(commande, sizeof(commande), "git commit -m \"%s\" -m \"%s\"", titre, description);
 	    
 	system(commande);
+	return 0;
+}
 
+int change() {
+	char titre[MAX_LENGTH];
+	char description[MAX_LENGTH];
+	char commande[MAX_LENGTH * 2];
+
+	commitInterface(titre, description);
+	
+	snprintf(commande, sizeof(commande), "git commit --amend -m \"%s\" -m \"%s\"", titre, description);
+	    
+	system(commande);
+	return 0;
 }
 
 int main(int argc, char *argv[]) {
@@ -46,9 +59,11 @@ int main(int argc, char *argv[]) {
     // Comparaison des arguments
     if (strcmp(argv[1], "commit") == 0) {
         commit();
-    } else if (strcmp(argv[1], "change") == 0) {
-        printf("L'argument est 'change'.\n");
-    } else {
+    }
+    else if (strcmp(argv[1], "change") == 0) {
+    	change();
+    } 
+	else {
         printf("Argument invalide. Utilisez 'commit' ou 'change'.\n");
         return 1;
     }
