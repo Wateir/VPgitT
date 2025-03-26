@@ -55,7 +55,17 @@ int change() {
 	return 0;
 }
 
-int checkout(){
+int checkout(int numberOfArg, char param[]){
+	char command[MAX_LENGTH];
+	if (numberOfArg == 1){
+		snprintf(command, sizeof(command), "git branch --sort=-committerdate | grep -v \"^\\*\" | fzf --reverse --height 10 | xargs -r git switch");
+
+		system(command);
+		return 0;
+	}
+	else{
+		snprintf(command, sizeof(command), "git switch %s", param);
+	}
 	printf("checkout\n");
 	return 0;
 }
@@ -77,7 +87,7 @@ int main(int argc, char *argv[]) {
     	change();
     } 
     else if (strcmp(argv[1], "checkout") ==0) {
-    	checkout();
+    	checkout(argc-1, argv[2]);
     }
 	else {
         help(argv[0]);
