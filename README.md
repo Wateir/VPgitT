@@ -6,5 +6,10 @@ Just grab the `.c` compile it and use it
 
 ## Use
 
-`VPgitT commit` basicly git commit
-`VPgitT change` basicly git commit -amend 
+`VPgitT commit` basicly git commit \\
+`VPgitT change` basicly git commit -amend \\
+`VPgitT checkout [Branch-name]` if given a branch name, make a  `git switch Branch-name`, if not show a fuzzy finder menu to choose which branch switch
+
+### Dependencies
+ `fzf` \\
+ `git` \\
