@@ -61,12 +61,10 @@ int checkout(int numberOfArg, char param[]){
 		snprintf(command, sizeof(command), "git branch --sort=-committerdate | grep -v \"^\\*\" | fzf --reverse --height 10 | xargs -r git switch");
 
 		system(command);
-		return 0;
 	}
 	else{
 		snprintf(command, sizeof(command), "git switch %s", param);
 	}
-	printf("checkout\n");
 	return 0;
 }
 
