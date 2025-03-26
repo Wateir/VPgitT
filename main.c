@@ -4,6 +4,11 @@
 
 #define MAX_LENGTH 256
 
+int help(char* progName){
+	printf("Usage: %s <commit|change>\n", progName);
+	printf("Usage: %s <switch> [branch name]\n", progName);
+	return 0;
+}
 
 int commitInterface(char* titre, char* description) {
 
@@ -50,21 +55,32 @@ int change() {
 	return 0;
 }
 
+int checkout(){
+	printf("checkout\n");
+	return 0;
+}
+
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        printf("Usage: %s <commit|change>\n", argv[0]);
+    if (argc < 2 || argc > 3) {
+        help(argv[0]);
         return 1;
     }
-
-    // Comparaison des arguments
+	if (strcmp(argv[1], "checkout") && argc != 2){
+		help(argv[0]);
+		return 1;
+	}
+	
     if (strcmp(argv[1], "commit") == 0) {
         commit();
     }
     else if (strcmp(argv[1], "change") == 0) {
     	change();
     } 
+    else if (strcmp(argv[1], "checkout") ==0) {
+    	checkout();
+    }
 	else {
-        printf("Argument invalide. Utilisez 'commit' ou 'change'.\n");
+        help(argv[0]);
         return 1;
     }
 
