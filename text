@@ -1,0 +1,13 @@
+VgitT commit
+	VgitT commit
+	2
+VgitT change
+	VgitT change
+	2
+VgitT checkout 
+	VgitT checkout something
+	VgitT checkout
+	2 or 3
+VgitT checkout -p
+	VgitT checkout -p something
+	4

@@ -76,36 +76,49 @@ int new(char param[]){
 }
 
 int main(int argc, char *argv[]) {
-    if (argc < 2 || argc > 4) {
+	 if (argc < 2 || argc > 4) {
         help(argv[0]);
         return 1;
     }
-	if (strcmp(argv[1], "checkout") == 0 && argc != 2){
-		if (strcmp(argv[1], "checkout") == 0 && strcmp(argv[2], "-b") == 0){
-			if (argc != 4){
-				help(argv[0]);
-				return 1;
-			}
-			else {
-				new(argv[3]);
-			}
-			
-		}
-		else{
-			help(argv[0]);
-			return 1;
-		}
-	}
-	else if (strcmp(argv[1], "checkout") ==0) {
+    if (argc == 2){
+    	 if (strcmp(argv[1], "commit") ==0) {
+	    	commit();
+	    }
+	    else if (strcmp(argv[1], "change") == 0) {
+	        	change();
+	    } 
+	    else if (strcmp(argv[1], "checkout") == 0){
 	    	checkout(argc-1, argv[2]);
 	    }
-
-    if (strcmp(argv[1], "commit") == 0) {
-        commit();
+	    else {
+	    	help(argv[0]);
+	    	return 1;
+	    }
     }
-    else if (strcmp(argv[1], "change") == 0) {
-    	change();
-    } 
+    if (argc == 3){
+    	if (strcmp(argv[1], "checkout") == 0) {
+    		if (strcmp(argv[2], "-b") == 0){
+    			help(argv[0]);
+    			return 1;
+    		}
+    		else {
+    		checkout(argc-1, argv[2]);
+    		}
+    	}
+    	else {
+    		help(argv[0]);
+    		return 1;
+    	}
+    }
+    if (argc == 4){
+    	if (strcmp(argv[1], "checkout") == 0 && strcmp(argv[2], "-b") == 0){
+    		new(argv[3]);
+    	}
+    	else {
+    		help(argv[0]);
+    		return 1;
+    	}
+    }
 
-    return 0;
+    return 0; 
 }
