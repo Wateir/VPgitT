@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
         help(argv[0]);
         return 1;
     }
-    if (argc == 2){
+    else if (argc == 2){
     	 if (strcmp(argv[1], "commit") ==0) {
 	    	commit();
 	    }
@@ -101,7 +101,7 @@ int main(int argc, char *argv[]) {
 	    	return 1;
 	    }
     }
-    if (argc == 3){
+    else if (argc == 3){
     	if (strcmp(argv[1], "checkout") == 0) {
     		if (strcmp(argv[2], "-b") == 0){
     			help(argv[0]);
@@ -116,7 +116,7 @@ int main(int argc, char *argv[]) {
     		return 1;
     	}
     }
-    if (argc == 4){
+    else if (argc == 4){
     	if (strcmp(argv[1], "checkout") == 0 && strcmp(argv[2], "-b") == 0){
     		new(argv[3]);
     	}
