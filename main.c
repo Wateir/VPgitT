@@ -2,7 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+/* 
+ MAX_LENGTH is the max size a desciption can have
+ MAX_GIT_LENGH assure that the description and the git command, both fit on the command execute
+*/
 #define MAX_LENGTH 256
+#define MAX_GIT_LENGHT 64
 
 int help(char* progName){
 	printf("Usage: %s <commit|change>\n", progName);
@@ -32,7 +38,7 @@ int commitInterface(char* titre, char* description) {
 int commit() {
 	char titre[MAX_LENGTH];
 	char description[MAX_LENGTH];
-	char commande[MAX_LENGTH * 2];
+	char commande[MAX_LENGTH * 2 + MAX_GIT_LENGHT];
 
 	commitInterface(titre, description);
 	
@@ -45,7 +51,7 @@ int commit() {
 int change() {
 	char titre[MAX_LENGTH];
 	char description[MAX_LENGTH];
-	char commande[MAX_LENGTH * 2];
+	char commande[MAX_LENGTH * 2 + MAX_GIT_LENGHT];
 
 	commitInterface(titre, description);
 	
