@@ -1,31 +1,25 @@
-#Maintainerl: wateir <contact@wateir.fr>
+# Maintainerl: wateir <contact@wateir.fr>
 
-pkgname=why3-git
-pkgver=r16737.389fdf8
+pkgname=VPgitT-git
+pkgver=r20.4a405d6
 pkgrel=1
-pkgdesc="Platform for deductive program verification"
-arch=("x86_64")
-url="https://gitlab.inria.fr/why3/why3"
-licence=('GNU LGPL 2.1.')
-provides=('why3')
-depends=("ocaml" "lablgtk3" "ocaml-menhir" "emacs" "ocaml-zarith")
-optdepends=(
-	'coq: For use coq realizations'
-	'cvc4: prover'
-	'z3: prover'
-	)
-makedepends=("git" "ocaml-compiler-libs" "bash")
-source=("git+https://gitlab.inria.fr/why3/why3")
-md5sums=('SKIP')
+pkgdesc="Very Personal GIT Tool"
+arch=("any")
+url="https://github.com/Wateir/VPgitT"
+licence=('MIT')
+provides=('VPgitT')
+depends=("git" "fzf")
+makedepends=("git")
+source=("git+https://github.com/Wateir/VPgitT")
+sha256sums=('SKIP')
 
 pkgver() {
-    cd "$srcdir/why3"
+    cd "$srcdir/VPgitT"
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
 }
 
 package() {
 
-  cd "$srcdir/why3"	
-	
+  cd "$srcdir/VPgitT"
   make
 }
