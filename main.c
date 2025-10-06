@@ -7,7 +7,7 @@
  MAX_LENGTH is the max size a desciption can have
  MAX_GIT_LENGH assure that the description and the git command, both fit on the command execute
 */
-#define MAX_LENGTH 256
+
 #define MAX_GIT_LENGHT 64
 
 int help(char* progName){
