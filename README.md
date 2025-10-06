@@ -35,4 +35,4 @@ make
 
 ` make MAX_LENGTH=<max commit and description lenght>` If none specified, 256 char is default  
 
-	For arch base distro, change this one ligne 24 of `pkgbuild` before make `makepkg -si`
+For arch base distro, change this one ligne 24 of `pkgbuild` before make `makepkg -si`
