@@ -4,21 +4,30 @@ Just grab the `.c` compile it and use it
 
 ![image](https://github.com/user-attachments/assets/50cc89cd-9d35-41c7-9f3d-f44b2749e19c)
 
-## Installation
+## Build
+### Prerequisites
+To build this tool, you need :
+- `git`
+- `gcc`
+- `make`
 
-### Arch Base Distro
-```
-git clone git@github.com:Wateir/VPgitT.git
-cd VPgitT
-makepkg -si
-```
-
-
-### Manual install
-```
-git clone git@github.com:Wateir/VPgitT.git
+### Building
+To build the tool, simply execute this command sequence:
+```bash
+git clone https://github.com/Wateir/VPgitT
 cd VPgitT
 make
+```
+#### Arch Linux
+Installation
+```bash
+git clone https://github.com/Wateir/VPgitT && cd VPgitT
+makepkg -si --cleanbuild
+cd .. && rm -fr VPgitT
+```
+Uninstall 
+```bash
+# pacman -R VPgitT-git
 ```
 
 ## Use
@@ -26,10 +35,6 @@ make
 `VPgitT commit` basicly git commit  
 `VPgitT change` basicly git commit -amend  
 `VPgitT checkout [Branch-name]` if given a branch name, make a  `git switch Branch-name`, if not show a fuzzy finder menu to choose which branch switch  
-
-### Dependencies
- `fzf`  
- `git`  
 
 ### Configuration
 

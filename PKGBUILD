@@ -19,7 +19,8 @@ pkgver() {
 }
 
 package() {
-
   cd "$srcdir/VPgitT"
   make
+
+  install -Dm755 "VPgitT" "$pkgdir/usr/bin/VPgitT"
 }
