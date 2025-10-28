@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-/* 
+/*
  MAX_LENGTH is the max size a desciption can have
  MAX_GIT_LENGH assure that the description and the git command, both fit on the command execute
 */
 
+#ifndef MAX_LENGTH
+#define MAX_LENGTH 256
+#endif
 #define MAX_GIT_LENGHT 64
 
 int help(char* progName){
@@ -21,7 +23,7 @@ int commitInterface(char* titre, char* description) {
     printf(" Title 	:\n");
     printf("  Description 	: ");
     printf("\033[0A");
-    
+
     fgets(titre, MAX_LENGTH, stdin);
 	printf("\033[18C");
     fgets(description, MAX_LENGTH, stdin);
@@ -30,9 +32,9 @@ int commitInterface(char* titre, char* description) {
     printf("\033[A\33[2K\r");
     printf("\033[A\33[2K\r");
 
-    
+
     printf("\033[0;32m==> \033[0m");fflush(stdout);
-    
+
 	return 0;
 }
 int commit() {
@@ -41,9 +43,9 @@ int commit() {
 	char commande[MAX_LENGTH * 2 + MAX_GIT_LENGHT];
 
 	commitInterface(titre, description);
-	
+
 	snprintf(commande, sizeof(commande), "git commit -m \"%s\" -m \"%s\"", titre, description);
-	    
+
 	system(commande);
 	return 0;
 }
@@ -54,9 +56,9 @@ int change() {
 	char commande[MAX_LENGTH * 2 + MAX_GIT_LENGHT];
 
 	commitInterface(titre, description);
-	
+
 	snprintf(commande, sizeof(commande), "git commit --amend -m \"%s\" -m \"%s\"", titre, description);
-	    
+
 	system(commande);
 	return 0;
 }
@@ -92,7 +94,7 @@ int main(int argc, char *argv[]) {
 	    }
 	    else if (strcmp(argv[1], "change") == 0) {
 	        	change();
-	    } 
+	    }
 	    else if (strcmp(argv[1], "checkout") == 0){
 	    	checkout(argc-1, argv[2]);
 	    }
@@ -126,5 +128,5 @@ int main(int argc, char *argv[]) {
     	}
     }
 
-    return 0; 
+    return 0;
 }
