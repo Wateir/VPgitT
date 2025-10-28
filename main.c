@@ -20,7 +20,7 @@ int help(char* progName){
 
 int commitInterface(char* titre, char* description) {
 
-    printf(" Title 	:\n");
+    printf(" Subject 	:\n");
     printf("  Description 	: ");
     printf("\033[0A");
 
@@ -84,12 +84,12 @@ int new(char param[]){
 }
 
 int main(int argc, char *argv[]) {
-	 if (argc < 2 || argc > 4) {
+    if (argc < 2 || argc > 4) {
         help(argv[0]);
         return 1;
     }
     else if (argc == 2){
-    	 if (strcmp(argv[1], "commit") ==0) {
+        if (strcmp(argv[1], "commit") ==0) {
 	    	commit();
 	    }
 	    else if (strcmp(argv[1], "change") == 0) {

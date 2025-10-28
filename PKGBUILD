@@ -1,7 +1,7 @@
 # Maintainerl: wateir <contact@wateir.fr>
 
 pkgname=VPgitT-git
-pkgver=r20.4a405d6
+pkgver=r24.3b2057c
 pkgrel=1
 pkgdesc="Very Personal GIT Tool"
 arch=("any")
@@ -22,5 +22,9 @@ package() {
   cd "$srcdir/VPgitT"
   make
 
-  install -Dm755 "VPgitT" "$pkgdir/usr/bin/VPgitT"
+  if [ -e "$pkgdir/usr/bin/VPgitT" ]; then
+      rm "$pkgdir/usr/bin/VPgitT"
+  fi
+
+  install -Dm755 "prog" "$pkgdir/usr/bin/VPgitT"
 }
